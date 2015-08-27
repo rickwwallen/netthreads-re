@@ -1,0 +1,20 @@
+This implementation of the reference router uses a link between eth1 and the
+first MAC port (nf2c0) to send packets to configure the router. But the DMA
+link nf2c0 could be used as well (although we haven't tested that). The
+communication protocol is based around reading and writing registers, with the
+same numbering as in the original reference router.
+
+Contributors welcomed:
+
+1) It appears that the raw socket interface inserts packets in the stream
+which give strange looking listip results once in a while. Those packets don't
+appear in the tcpdump so this is strictly a host problem (the processor was
+trace at runtime to validate that assumption and compared against the
+simulator trace and a rtl simulation trace). When the first listip is not
+blank, the user can expect the other listip to look funny.
+
+---> I am now filtering those packets based on their size it the issue appears to be resolved.
+
+
+2) The conversion of verilog to C was done in a 'best effort' manner and the
+router has not be thoroughly tested. 

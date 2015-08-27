@@ -1,0 +1,123 @@
+
+---How to Run the Simulator---
+
+The simulator is configured to emulate a dual-core 4 way (threaded) processor
+with a single input and output packet buffer as in the NetThreads-RE
+release. The simulator is accurate on a small scale, i.e. it usually predicts
+correctly the execution time but does not reproduce it exactly. The following
+command is used to run the simulator:
+
+trace -limit 100  -pcapmac1 out.trace  -pcapmac0 trace.tcpdump -inter 57415 my_app
+
+The packets input stream is injected to the application under test at a
+ specified packet inter arrival rate or (when the option is not specified as
+ above) a packet is always available when a processor requests it.
+
+The following is an example breakdown of some common simulator command
+parameters (run trace with no arguments to see more):
+
+ ./trace 
+-limit 1000  number of packets 
+-recirc      allow to loop the packet trace 
+-trace       save processor activity 
+-pcapmac0    in.trace   input packet trace on mac port 0 (0 to 3 are valid ports)
+-inter 30570 inter-arrival packet rate 
+<executable>
+
+Packets sent are stored in pcap*.trace in the current directory, only if the
+associated ports have a -pcapmacX (range 0-3) command line specifier (the
+input trace file doesn't have to exist).
+
+***** To run with the thread scheduling enabled, you must add on the command
+***** line: -prio backoff -sched static
+***** this requires that you built your application with 'make exec'
+
+an example of a full command would then be:
+
+./trace -limit 20 -pcapmac0 ../src/bench/reference_router/route_arp.trace
+-prio backoff -sched static ../src/bench/reference_router/reference_router
+
+
+The simulator called trace_1thread_only has 1 CPU consisting of 1 thread
+only. This might be useful to make debugging even simplier.
+
+---Analyzing the simulator results---
+
+The simulator generates various statistics during the simulation. The
+following is a excerpt of the output:
+
+stats for cpu 0, thread 0 
+%c0 t0: spinning 11479368 replay 45419 stalled_for_output 0 locked 0 
+squashed 4913417 tched 41814911 i_miss 36700 d_miss 763655 cant_fetch 
+12394989 rolledback 233260  speculative 0 backoff 1330382 suspended 
+1330382 waitforpacket 1330382 rollback_bus 14530 committed 15273534
+
+(Note all numbers are in clock cycles (clock is 125Mhz or 8ns ticks))
+
+spinning:           busy waiting for a packet 
+replay:             retry instruction 
+stalled_for_output: waiting for output physical output port 
+locked:             waiting for lock 
+squashed:           instruction squash in pipeline 
+tched:              dependence between instructions 
+i_miss: 	    instruction cache miss
+d_miss: 	    data cache miss
+cant_fetch:         pipeline delay 
+rolledback:         0
+speculative:        0
+backoff:            0
+suspended: 	    0
+waitforpacket:      0
+rollback_bus:       0
+committed:          useful work
+
+
+More information regarding processor architecture may be found at:
+http://www.eecg.utoronto.ca/~martinl 
+
+---Using the Simulator as a Debugger---
+
+Adding the -i command line option starts the simulator in interactive mode.
+The prompt can be used to issue one of the following commands:
+
+t cpu_no	prints state of thread scheduler
+%		prints hardware contexts state
+d cpu_no	dumps machine state per thread
+c		continue execution
+g hex_pc	e.g. g 200000b4 stops at a given program counter
+j time		e.g. j 1000000 fast forwards to cycle 1000000
+p no		fast forwards to packet arrival number
+w hex_addr	e.g. w 4040898 sets a watch on the address
+e hex_addr	examine memory
+m		prints memory ranges touched so far
+L		becomes verbose
+q		exit
+f thread_no	only display work of a particular thread
+r		print pending memory requests
+i		print 'real' time
+<enter>		advances one cycle
+
+Pressing ctrl-c at any time during execution brings the interactive mode. When
+the simulator is stopped, ctrl-c exits.
+
+---Generated files--- 
+
+It is possible to generate detailed execution reports with the -trace option
+(files will go in the /tmp folder).  After such a simulator run, the script
+gprof.sh will create an tree representation of the call graph along with the
+time spent in each subroutine (deeply nested subroutines are called by the
+less nested ones so their duration is included in their caller's duration).
+
+In the current folder this file will be generated: "f_thread_activity.txt" It
+contains the following space-delimited fields.
+
+-- Time : in cycles, that would be in the x axis. all the items on the line could
+be y axises.
+-- active_threads: this is just count of active threads (processing a packet)
+-- queue_size : bytes not contained in the input memory (i.e. the other hardware
+queue that buffers when the input memory fills up). max size is 6100 bytes.
+-- released_bufs: slots available in the input memory
+-- filled_bufs: slots not available in the input memory because they are filled
+with packets to process
+
+Output packets are saved in a tcpdump format in trace in the current directory.

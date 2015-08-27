@@ -1,0 +1,44 @@
+                0x0000000004040000                . = 0x4040000
+                0x0000000004040000                . = (ALIGN (0x40000) - ((0x40000 - .) & 0x3ffff))
+                0x0000000004040000                . = (0x40000 DATA_SEGMENT_ALIGN 0x1000)
+                0x0000000004040000                . = ALIGN (0x4)
+                0x0000000004040000                . = (. DATA_SEGMENT_RELRO_END 0x0)
+                0x0000000004040000                _fdata = .
+                0x0000000004040000      0x408 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(mallocr.o)
+                0x0000000004040000                __malloc_av_
+                0x0000000004040408      0x400 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(impure.o)
+                0x0000000004040808       0x3e ricks_netfpga_dns.o
+                0x00000000040409b0        0x8 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(mallocr.o)
+                0x00000000040409b8        0x2 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(impure.o)
+                0x00000000040409ba                . = .
+                0x00000000040489b0                _gp = (ALIGN (0x10) + 0x7ff0)
+                0x00000000040409bc        0x4 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(mallocr.o)
+                0x00000000040409bc                __malloc_sbrk_base
+                0x00000000040409c0        0x4 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(mallocr.o)
+                0x00000000040409c0                __malloc_trim_threshold
+                0x00000000040409c4        0x4 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(impure.o)
+                0x00000000040409c4                _impure_ptr
+                0x00000000040409c8        0x4 /home/rickwallen/netthreads-re/compiler/lib/libspe.a(sbrk.o)
+                0x00000000040409c8                heap_ptr
+                0x00000000040409cc                _edata = .
+                0x00000000040409cc                __bss_start = .
+                0x00000000040409cc                _fbss = .
+                0x00000000040409cc        0x4 support.o
+                0x00000000040409cc                error_condition
+                0x00000000040409d0        0x4 support.o
+                0x00000000040409d0                po_buffers_free
+                0x00000000040409d4        0x4 support.o
+                0x00000000040409d8        0x4 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(mallocr.o)
+                0x00000000040409d8                __malloc_max_total_mem
+                0x00000000040409dc        0x4 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(mallocr.o)
+                0x00000000040409dc                __malloc_max_sbrked_mem
+                0x00000000040409e0        0x4 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(mallocr.o)
+                0x00000000040409e0                __malloc_top_pad
+                0x00000000040409e4                errno
+                0x00000000040409e8       0x28 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(mallocr.o)
+                0x00000000040409e8                __malloc_current_mallinfo
+                0x0000000004040a10                . = ALIGN (0x4)
+                0x0000000004040a10                . = ALIGN (0x4)
+                0x0000000004040a28                . = ALIGN (0x4)
+                0x0000000004040a28                _end = .
+                0x0000000004040a28                . = DATA_SEGMENT_END (.)

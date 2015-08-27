@@ -1,0 +1,54 @@
+NetThreads-RE
+Release 2.0 June 2010
+
+Authors:
+    Martin Labrecque, J. Gregory Steffan 
+    Geoffrey Salmon, Monia Ghobadi and Yashar Ganjali
+
+For more information about this package, please refer to:
+http://netfpga.org/netfpgawiki/index.php/Projects:NetThreads
+
+REQUIREMENTS
+
+Requires to have an installed version of gawk (not mawk) aliased to awk.
+
+
+--------------------
+
+GNU_GPL is the license for gcc, binutils and newlib. They are included
+in binary form and the source code can be obtained from:
+
+http://gcc.gnu.org 
+http://www.gnu.org/software/binutils/
+http://sourceware.org/newlib/
+
+If you compile these tools from source, use the MIPS-1 target, use the
+software multiplies/divides/floating point and disable branch delay
+slots. The load delay slots are not required so they can be removed
+for extra performance.
+
+A restricted version of the standard C library is precompiled. You can
+choose to use the malloc memory allocator, otherwise the system
+defaults to a multithreaded memory allocator based on:
+
+http://www.keil.com/download/docs/18.asp.
+
+--------------------
+
+NETFPGA_LICENSE 
+
+The bitfile in the bit/ directory contains an important fraction of
+the NetFPGA 1.2.x base package.
+
+--------------------
+
+If you use or distribute this package in your work, cite the following
+paper:
+
+NetThreads: Programming NetFPGA with Threaded Software, Martin
+Labrecque, J. Gregory Steffan, Geoffrey Salmon, Monia Ghobadi, Yashar
+Ganjali, NetFPGA Developers Workshop, Palo Alto, CA, August, 2009.
+
+
+NO EXPRESSED OR IMPLIED WARRANTY/GUARANTEE
+Use at your own risk.

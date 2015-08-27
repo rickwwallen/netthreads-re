@@ -1,0 +1,23 @@
+Since NetThreads-RE only has one combined input and output packet buffer,
+there is no need to memcpy packets. This explains briefly the impact on the
+code (which should be shorter and simpler now).
+
+To port an application from the previous NetThreads, here are the steps:
+
+1) there is no more output buffer allocation. Packets are sent from the input memory.
+
+The input memory is managed in hardware (except for the portion that is not
+freed for used by the hardware).
+
+When a packet is received, if it is dropped, make sure to call:
+nf_pktin_free(packet_ptr);
+to make the address of the received packet (packet_ptr) available for the
+incoming packets.
+
+2) add iomem_send.o to the list of objects in your program Makefile. 
+it contains the function to call to send a packet. It requires that you do:
+uint ctrl = calc_ctrl(start_addr, end_addr);
+to compute the ctrl character for the sending.
+
+
+See reference_router for a detailed example.

@@ -1,0 +1,418 @@
+Archive member included because of file (symbol)
+
+/home/rickwallen/netthreads-re/compiler/lib/libspe.a(udivmod.o)
+                              support.o (__udivsi3)
+/home/rickwallen/netthreads-re/compiler/lib/libspe.a(udivmodsi4.o)
+                              /home/rickwallen/netthreads-re/compiler/lib/libspe.a(udivmod.o) (udivmodsi4)
+/home/rickwallen/netthreads-re/compiler/lib/mylibc.a(memset.o)
+                              rick_hello.o (memset)
+/home/rickwallen/netthreads-re/compiler/lib/mylibc.a(strlen.o)
+                              rick_hello.o (strlen)
+/home/rickwallen/netthreads-re/compiler/lib/mylibc.a(memcpy.o)
+                              memcpy.o (memcpy)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD nf2.o
+LOAD support.o
+LOAD support_no_inline.o
+LOAD memcpy.o
+LOAD rick_hello.o
+LOAD pktbuff.o
+LOAD iomem_send.o
+LOAD ../common/lib/uni_alloc.a
+                0x0000000020000000                PROVIDE (__executable_start, 0x20000000)
+                0x0000000020000000                . = 0x20000000
+
+.interp
+ *(.interp)
+
+.dynamic
+ *(.dynamic)
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.dyn
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+
+.rela.dyn
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(.init)
+
+.plt
+ *(.plt)
+
+.text           0x0000000020000000      0x6dc
+                0x0000000020000000                _ftext = .
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000020000000      0x22c nf2.o
+                0x00000000200000f0                _t5
+                0x0000000020000150                _t7
+                0x0000000020000180                _t8
+                0x0000000020000000                _start
+                0x00000000200001b0                _t9
+                0x0000000020000120                _t6
+                0x0000000020000030                _t1
+                0x00000000200000c0                _t4
+                0x0000000020000060                _t2
+                0x00000000200001e0                _exit
+                0x0000000020000090                _t3
+ .text.nf_pktout_alloc
+                0x000000002000022c       0xd8 support.o
+                0x000000002000022c                nf_pktout_alloc
+ .text.nf_stall_a_bit
+                0x0000000020000304       0x54 support.o
+                0x0000000020000304                nf_stall_a_bit
+ .text.init_stack
+                0x0000000020000358       0x40 support.o
+                0x0000000020000358                init_stack
+ .text.nf_pktin_init
+                0x0000000020000398       0x64 support.o
+                0x0000000020000398                nf_pktin_init
+ .text.nf_unlock
+                0x00000000200003fc       0x10 support_no_inline.o
+                0x00000000200003fc                nf_unlock
+ .text.nf_lock  0x000000002000040c       0x10 support_no_inline.o
+                0x000000002000040c                nf_lock
+ .text.nf_tid   0x000000002000041c       0x10 support_no_inline.o
+                0x000000002000041c                nf_tid
+ .text.relax    0x000000002000042c       0x4c support_no_inline.o
+                0x000000002000042c                relax
+ .text.nf_pktin_free
+                0x0000000020000478        0xc support_no_inline.o
+                0x0000000020000478                nf_pktin_free
+ .text.main     0x0000000020000484       0xd8 rick_hello.o
+                0x0000000020000484                main
+ .text.fill_ioq
+                0x000000002000055c       0x34 pktbuff.o
+                0x000000002000055c                fill_ioq
+ .text.do_send  0x0000000020000590       0x2c iomem_send.o
+                0x0000000020000590                do_send
+ .text.memset   0x00000000200005bc       0xd4 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(memset.o)
+                0x00000000200005bc                memset
+ .text.strlen   0x0000000020000690       0x1c /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(strlen.o)
+                0x0000000020000690                strlen
+ .text.memcpy   0x00000000200006ac       0x30 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(memcpy.o)
+                0x00000000200006ac                memcpy
+ *(.text.*personality*)
+ *(.gnu.warning)
+ *(.mips16.fn.*)
+ *(.mips16.call.*)
+
+.fini
+ *(.fini)
+                0x0000000004040000                . = 0x4040000
+                0x0000000004040000                . = (ALIGN (0x40000) - ((0x40000 - .) & 0x3ffff))
+                0x0000000004040000                . = (0x40000 DATA_SEGMENT_ALIGN 0x1000)
+                0x0000000004040000                PROVIDE (__etext, .)
+                0x0000000004040000                PROVIDE (_etext, .)
+                0x0000000004040000                PROVIDE (etext, .)
+
+.sdata2
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+
+.sbss2
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame
+ *(.eh_frame)
+
+.gcc_except_table
+ *(.gcc_except_table)
+ *(.gcc_except_table.*)
+
+.eh_frame
+ *(.eh_frame)
+
+.gcc_except_table
+ *(.gcc_except_table)
+ *(.gcc_except_table.*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+                0x0000000004040000                . = ALIGN (0x4)
+                0x0000000004040000                PROVIDE (__preinit_array_start, .)
+
+.preinit_array
+ *(.preinit_array)
+                0x0000000004040000                PROVIDE (__preinit_array_end, .)
+                0x0000000004040000                PROVIDE (__init_array_start, .)
+
+.init_array
+ *(.init_array)
+                0x0000000004040000                PROVIDE (__init_array_end, .)
+                0x0000000004040000                PROVIDE (__fini_array_start, .)
+
+.fini_array
+ *(.fini_array)
+                0x0000000004040000                PROVIDE (__fini_array_end, .)
+
+.ctors
+ *crtbegin*.o(.ctors)
+ *(EXCLUDE_FILE(*crtend*.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin*.o(.dtors)
+ *(EXCLUDE_FILE(*crtend*.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local)
+ *(.data.rel.ro*)
+                0x0000000004040000                . = (. DATA_SEGMENT_RELRO_END 0x0)
+
+.data           0x0000000004040000        0x0
+                0x0000000004040000                _fdata = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ *(.gnu.linkonce.d.*personality*)
+
+.data1
+ *(.data1)
+
+.rodata         0x0000000004040000       0x70
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.4
+                0x0000000004040000       0x70 rick_hello.o
+
+.rodata1
+ *(.rodata1)
+                0x0000000004040070                . = .
+                0x0000000004048060                _gp = (ALIGN (0x10) + 0x7ff0)
+
+.got
+ *(.got.plt)
+ *(.got)
+
+.sdata          0x0000000004040070        0x4
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ .sdata.mystr   0x0000000004040070        0x4 rick_hello.o
+                0x0000000004040070                mystr
+
+.lit8
+ *(.lit8)
+
+.lit4
+ *(.lit4)
+                0x0000000004040074                _edata = .
+                0x0000000004040074                PROVIDE (edata, .)
+                0x0000000004040074                __bss_start = .
+                0x0000000004040074                _fbss = .
+
+.sbss           0x0000000004040074        0x8
+                0x0000000004040074                PROVIDE (__sbss_start, .)
+                0x0000000004040074                PROVIDE (___sbss_start, .)
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss.po_buffers_free
+                0x0000000004040074        0x4 support.o
+                0x0000000004040074                po_buffers_free
+ .sbss.init_flag
+                0x0000000004040078        0x4 support.o
+ *(.scommon)
+                0x000000000404007c                PROVIDE (__sbss_end, .)
+                0x000000000404007c                PROVIDE (___sbss_end, .)
+
+.bss            0x000000000404007c        0x0
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ *(COMMON)
+                0x000000000404007c                . = ALIGN (0x4)
+                0x000000000404007c                . = ALIGN (0x4)
+
+.reginfo        0x000000000404007c       0x18
+ *(.reginfo)
+ .reginfo       0x000000000404007c       0x18 nf2.o
+                0x0000000004040094                . = ALIGN (0x4)
+                0x0000000004040094                _end = .
+                0x0000000004040094                PROVIDE (end, .)
+                0x0000000004040094                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0xc6
+ *(.comment)
+ .comment       0x0000000000000000       0x12 support.o
+ .comment       0x0000000000000012       0x12 support_no_inline.o
+ .comment       0x0000000000000024       0x12 memcpy.o
+ .comment       0x0000000000000036       0x12 rick_hello.o
+ .comment       0x0000000000000048       0x12 pktbuff.o
+ .comment       0x000000000000005a       0x12 iomem_send.o
+ .comment       0x000000000000006c       0x12 /home/rickwallen/netthreads-re/compiler/lib/libspe.a(udivmod.o)
+ .comment       0x000000000000007e       0x12 /home/rickwallen/netthreads-re/compiler/lib/libspe.a(udivmodsi4.o)
+ .comment       0x0000000000000090       0x12 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(memset.o)
+ .comment       0x00000000000000a2       0x12 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(strlen.o)
+ .comment       0x00000000000000b4       0x12 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(memcpy.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.gptab.sdata
+ *(.gptab.data)
+ *(.gptab.sdata)
+
+.gptab.sbss
+ *(.gptab.bss)
+ *(.gptab.sbss)
+                0x0000000007fffffc                . = 0x7fffffc
+                0x0000000007fffffc                _sp = ALIGN (0x4)
+
+/DISCARD/
+ *(.note.GNU-stack)
+LOAD /home/rickwallen/netthreads-re/compiler/lib/libspe.a
+LOAD /home/rickwallen/netthreads-re/compiler/lib/mylibc.a
+LOAD /home/rickwallen/netthreads-re/compiler/lib/mylibm.a
+LOAD /home/rickwallen/netthreads-re/compiler/lib/mylibc.a
+LOAD /home/rickwallen/netthreads-re/compiler/lib/libgcc.a
+LOAD /home/rickwallen/netthreads-re/compiler/lib/libspe.a
+LOAD /home/rickwallen/netthreads-re/compiler/lib/libspe.a
+LOAD /home/rickwallen/netthreads-re/compiler/lib/libspe.a
+LOAD /home/rickwallen/netthreads-re/compiler/lib/mylibc.a
+OUTPUT(rick_hello elf32-bigmips)
+
+.pdr            0x0000000000000000      0x340
+ .pdr           0x0000000000000000      0x160 nf2.o
+ .pdr           0x0000000000000160       0x80 support.o
+ .pdr           0x00000000000001e0       0xa0 support_no_inline.o
+ .pdr           0x0000000000000280       0x20 rick_hello.o
+ .pdr           0x00000000000002a0       0x20 pktbuff.o
+ .pdr           0x00000000000002c0       0x20 iomem_send.o
+ .pdr           0x00000000000002e0       0x20 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(memset.o)
+ .pdr           0x0000000000000300       0x20 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(strlen.o)
+ .pdr           0x0000000000000320       0x20 /home/rickwallen/netthreads-re/compiler/lib/mylibc.a(memcpy.o)
+
+.mdebug.abi32   0x0000000000000000        0x0

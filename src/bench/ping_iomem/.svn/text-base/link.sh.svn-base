@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SRC=" arp.h     dev.c  pktbuff.c  process.c  support.c  tap.c arp.c     common.h  dev.h  pktbuff.h  process.h  support.h"
+PREF=/autofs/steffan/r/r2/martinl/spree/applications/ping
+for i in  ${SRC}
+do
+    rm -f $i
+    #ln -s ${PREF}/$i
+    cp --copy-contents ${PREF}/$i ./
+done

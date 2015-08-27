@@ -1,0 +1,359 @@
+Archive member included because of file (symbol)
+
+/home/rick/netthreads/compiler/lib/libspe.a(udivmod.o)
+                              support.o (__udivsi3)
+/home/rick/netthreads/compiler/lib/libspe.a(udivmodsi4.o)
+                              /home/rick/netthreads/compiler/lib/libspe.a(udivmod.o) (udivmodsi4)
+/home/rick/netthreads/compiler/lib/mylibc.a(memcpy.o)
+                              memcpy.o (memcpy)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD nf2.o
+LOAD support.o
+LOAD support_no_inline.o
+LOAD memcpy.o
+LOAD ../common/lib/uni_alloc.a
+                0x0000000020000000                PROVIDE (__executable_start, 0x20000000)
+                0x0000000020000000                . = 0x20000000
+
+.interp
+ *(.interp)
+
+.dynamic
+ *(.dynamic)
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.dyn
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+
+.rela.dyn
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(.init)
+
+.plt
+ *(.plt)
+
+.text           0x0000000020000000      0x28c
+                0x0000000020000000                _ftext = .
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000020000000      0x23c nf2.o
+                0x00000000200000f4                _t5
+                0x000000002000015c                _t7
+                0x0000000020000190                _t8
+                0x0000000020000000                _start
+                0x00000000200001c0                _t9
+                0x0000000020000128                _t6
+                0x0000000020000030                _t1
+                0x00000000200000c0                _t4
+                0x0000000020000060                _t2
+                0x00000000200001f0                _exit
+                0x0000000020000090                _t3
+ .text.init_stack
+                0x000000002000023c       0x40 support.o
+                0x000000002000023c                init_stack
+ .text.nf_tid   0x000000002000027c       0x10 support_no_inline.o
+                0x000000002000027c                nf_tid
+ *(.text.*personality*)
+ *(.gnu.warning)
+ *(.mips16.fn.*)
+ *(.mips16.call.*)
+
+.fini
+ *(.fini)
+                0x0000000004040000                . = 0x4040000
+                0x0000000004040000                . = (ALIGN (0x40000) - ((0x40000 - .) & 0x3ffff))
+                0x0000000004040000                . = (0x40000 DATA_SEGMENT_ALIGN 0x1000)
+                0x0000000004040000                PROVIDE (__etext, .)
+                0x0000000004040000                PROVIDE (_etext, .)
+                0x0000000004040000                PROVIDE (etext, .)
+
+.sdata2
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+
+.sbss2
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame
+ *(.eh_frame)
+
+.gcc_except_table
+ *(.gcc_except_table)
+ *(.gcc_except_table.*)
+
+.eh_frame
+ *(.eh_frame)
+
+.gcc_except_table
+ *(.gcc_except_table)
+ *(.gcc_except_table.*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+                0x0000000004040000                . = ALIGN (0x4)
+                0x0000000004040000                PROVIDE (__preinit_array_start, .)
+
+.preinit_array
+ *(.preinit_array)
+                0x0000000004040000                PROVIDE (__preinit_array_end, .)
+                0x0000000004040000                PROVIDE (__init_array_start, .)
+
+.init_array
+ *(.init_array)
+                0x0000000004040000                PROVIDE (__init_array_end, .)
+                0x0000000004040000                PROVIDE (__fini_array_start, .)
+
+.fini_array
+ *(.fini_array)
+                0x0000000004040000                PROVIDE (__fini_array_end, .)
+
+.ctors
+ *crtbegin*.o(.ctors)
+ *(EXCLUDE_FILE(*crtend*.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin*.o(.dtors)
+ *(EXCLUDE_FILE(*crtend*.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local)
+ *(.data.rel.ro*)
+                0x0000000004040000                . = (. DATA_SEGMENT_RELRO_END 0x0)
+
+.data           0x0000000004040000        0x0
+                0x0000000004040000                _fdata = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ *(.gnu.linkonce.d.*personality*)
+
+.data1
+ *(.data1)
+
+.rodata
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+
+.rodata1
+ *(.rodata1)
+                0x0000000004040000                . = .
+                0x0000000004047ff0                _gp = (ALIGN (0x10) + 0x7ff0)
+
+.got
+ *(.got.plt)
+ *(.got)
+
+.sdata
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+
+.lit8
+ *(.lit8)
+
+.lit4
+ *(.lit4)
+                0x0000000004040000                _edata = .
+                0x0000000004040000                PROVIDE (edata, .)
+                0x0000000004040000                __bss_start = .
+                0x0000000004040000                _fbss = .
+
+.sbss           0x0000000004040000        0x0
+                0x0000000004040000                PROVIDE (__sbss_start, .)
+                0x0000000004040000                PROVIDE (___sbss_start, .)
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ *(.scommon)
+                0x0000000004040000                PROVIDE (__sbss_end, .)
+                0x0000000004040000                PROVIDE (___sbss_end, .)
+
+.bss            0x0000000004040000        0x0
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ *(COMMON)
+                0x0000000004040000                . = ALIGN (0x4)
+                0x0000000004040000                . = ALIGN (0x4)
+
+.reginfo        0x0000000004040000       0x18
+ *(.reginfo)
+ .reginfo       0x0000000004040000       0x18 nf2.o
+                0x0000000004040018                . = ALIGN (0x4)
+                0x0000000004040018                _end = .
+                0x0000000004040018                PROVIDE (end, .)
+                0x0000000004040018                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x6c
+ *(.comment)
+ .comment       0x0000000000000000       0x12 support.o
+ .comment       0x0000000000000012       0x12 support_no_inline.o
+ .comment       0x0000000000000024       0x12 memcpy.o
+ .comment       0x0000000000000036       0x12 /home/rick/netthreads/compiler/lib/libspe.a(udivmod.o)
+ .comment       0x0000000000000048       0x12 /home/rick/netthreads/compiler/lib/libspe.a(udivmodsi4.o)
+ .comment       0x000000000000005a       0x12 /home/rick/netthreads/compiler/lib/mylibc.a(memcpy.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.gptab.sdata
+ *(.gptab.data)
+ *(.gptab.sdata)
+
+.gptab.sbss
+ *(.gptab.bss)
+ *(.gptab.sbss)
+                0x00000000040ffffc                . = 0x40ffffc
+                0x00000000040ffffc                _sp = ALIGN (0x4)
+
+/DISCARD/
+ *(.note.GNU-stack)
+LOAD /home/rick/netthreads/compiler/lib/libspe.a
+LOAD /home/rick/netthreads/compiler/lib/mylibc.a
+LOAD /home/rick/netthreads/compiler/lib/mylibm.a
+LOAD /home/rick/netthreads/compiler/lib/mylibc.a
+LOAD /home/rick/netthreads/compiler/lib/libgcc.a
+LOAD /home/rick/netthreads/compiler/lib/libspe.a
+LOAD /home/rick/netthreads/compiler/lib/libspe.a
+LOAD /home/rick/netthreads/compiler/lib/libspe.a
+LOAD /home/rick/netthreads/compiler/lib/mylibc.a
+OUTPUT(rick_hello elf32-bigmips)
+
+.pdr            0x0000000000000000      0x1a0
+ .pdr           0x0000000000000000      0x160 nf2.o
+ .pdr           0x0000000000000160       0x20 support.o
+ .pdr           0x0000000000000180       0x20 support_no_inline.o
+
+.mdebug.abi32   0x0000000000000000        0x0

@@ -1,0 +1,27 @@
+include ../common.mk
+
+TARGET=fast
+SRC=arp.c  dev.c  pktbuff.c  process.c  support.c 
+START = ./nf2.o
+LSI = ./nf2_linker.ld
+UDEFINCS = -I. -I/usr/include -I$(BASE)/compiler/lib/gcc/mips-mips-elf/4.0.2/include/
+######################## For cross compiled GCC ##########################
+
+include ../footer.mk
+
+$(START): nf2.s
+	$(SPE_AS)  -O3 -march=sp -o nf2.o nf2.s
+
+
+DIST=distrib
+dist: $(wildcard *.c) $(wildcard *.h)
+	cp arp.c  common.h  dev.h      pktbuff.h  process.h   support.h arp.h  dev.c     pktbuff.c  process.c  support.c  tap.c $(DIST)/
+	cp Makefile.old $(DIST)/Makefile
+	zip -r $(DIST).zip $(DIST)
+
+
+link:
+	ln -s ../fast/support.c
+	cp ../fast/nf2.s ./nf2.s
+	ln -s ../fast/support.h
+	ln -s ../fast/nf2_linker.ld 

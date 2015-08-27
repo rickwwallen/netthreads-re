@@ -1,0 +1,3 @@
+This is a port of the NetThreads v1.0 ping application. Might be useful to see
+the differences in the packet sending API. Note that using the pktbuff API is
+optional, as examplified in the pipe benchmark.
